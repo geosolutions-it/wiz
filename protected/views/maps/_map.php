@@ -238,7 +238,46 @@ $layerslist= array(
 			map.addLayer(layer_<?php echo $l['layer']; ?>);
 
 <?php }   	?>
-        
+
+<?php foreach(Wms::getLayers() as $l_id => $l) {	?>
+var layer_<?php echo $l['name']; ?> = new OpenLayers.Layer.WMS(
+		"<?php echo $l['title'] ?>",
+		"<?php echo $l['url']; ?>",
+		{
+	        layers: "<?php echo $l['name'] ?>",
+	        projection: "<?php echo $l['projection']; ?>",
+	        transparent: 'true',
+	        format: 'image/png'
+	    },
+	    { 
+    		id:"<?php echo 'id'.$l['name'] ; ?>"
+	    	, group:'Wms Personali'  
+	    	
+		}
+	);
+map.addLayer(layer_<?php echo $l['name']; ?>);
+
+<?php }   	?>
+
+<?php /*foreach(Wfs::getLayers() as $l_id => $l) {	?>
+var layer_<?php echo $l['name']; ?> = new OpenLayers.Layer.WFS(
+        "<?php echo $l['title']; ?>",
+        "<?php echo $l['url']; ?>",
+        {
+			typename: "<?php echo $l['typename'].$l['name']; ?>"
+        },
+        {
+            typename: "<?php echo $l['name']; ?>", 
+            featureNS: "<?php echo $l['typenameurl']; ?>", 
+            //extractAttributes: true,
+            projection: "<?php echo $l['projection']; ?>",
+          	displayOutsideMaxExtent:true,
+            transitionEffect: 'resize'
+        }
+    );
+map.addLayer(layer_<?php echo $l['name']; ?>);
+
+<?php }   */	?>
             
             var panel = new OpenLayers.Control.Panel(
                     {displayClass: 'olControlEditingToolbar'}
