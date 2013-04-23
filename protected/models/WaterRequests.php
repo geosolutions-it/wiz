@@ -37,8 +37,8 @@ class WaterRequests extends CActiveRecord
 	
 	
 	
-	/* TODO: Salvandolo nel DB puÃ² diventare un segnale del fatto che per questa Water Request
-	 * 		Ã¨ giÃ  stato caricato uno shape file. 
+	/* TODO: Salvandolo nel DB può diventare un segnale del fatto che per questa Water Request
+	 * 		è già stato caricato uno shape file. 
 	 */
 	public $shpfile;
 	public $shxfile;
@@ -110,6 +110,8 @@ class WaterRequests extends CActiveRecord
 			array('description, note', 'length', 'max'=>1000),
 			array('status',  'SWValidator','enableSwValidation'=>true),
 			array('cost','required','on'=>'sw:submitted_approved'),
+   		array('expiration_date', 'type', 'type' => 'date', 'message' => '{attribute}: '.Yii::t('waterrequest', 'not_a_date'), 'dateFormat' => 'yyyy-MM-dd'),
+
 			array('expiration_date','required','on'=>'phase_two'),
 			array('expiration_date','safe'),
 			//array('timestamp', 'safe'),
@@ -323,7 +325,7 @@ class WaterRequests extends CActiveRecord
 		try{
 			$ret = date(Yii::app()->params['dateFormat'],$date);
 		}
-		catch(Exception $e){
+		catch(Exception $e){  
 			$ret = date('Y-m-d',$date);//default date format
 		}
 		return $ret;

@@ -68,8 +68,11 @@ $geom_already_exist = false;
 		                'model'=>$model,                                
 		                'attribute'=>'expiration_date', 
 		                'mode'=>'date',                     
-		                'options'=>array(),                     
-		                'htmlOptions'=>array('size'=>6,'disabled'=>!$edit)
+		                'options'=>array('dateFormat'=>'yy-mm-dd',
+                                     'changeMonth'=> true,
+                                     'changeYear'=>true
+                                     ),                     
+		                'htmlOptions'=>array('size'=>10,'disabled'=>!$edit)
 	        	  ));                             
 	        ?> 
 			<?php echo $form->error($model,'expiration_date'); ?>
