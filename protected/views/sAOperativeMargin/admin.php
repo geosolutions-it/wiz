@@ -45,10 +45,16 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'id',
 		'area',
-		array( 
-			'name'=>'city_state',            
+		array(
+					'header'=>Yii::t('waterrequest', 'City State'),
+					'name'=>'area',
+					'filter' => CHtml::listData(ServiceArea::model()->findAll(), 'area', 'desc_area'),
+					'value'=>'$data->city_state->desc_area'
+/*
+						'name'=>'city_state',            
             'value'=>'$data->city_state->desc_area'
-         ),
+*/
+					),
 		'margin',
 		'scenario',
 		array(

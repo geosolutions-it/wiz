@@ -43,7 +43,7 @@ class SAOperativeMargin extends CActiveRecord
 			array('scenario', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, area, margin, city_state , scenario', 'safe', 'on'=>'search'),
+			array('id, area, margin, scenario', 'safe', 'on'=>'search'),
 		);
 	}
 
