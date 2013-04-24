@@ -43,7 +43,7 @@ class SAOperativeMargin extends CActiveRecord
 			array('scenario', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, area, margin, , scenario', 'safe', 'on'=>'search'),
+			array('id, area, margin, city_state , scenario', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +55,7 @@ class SAOperativeMargin extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'city_state'=>array(self::BELONGS_TO, 'ServiceArea', 'area'),
+			'city_state'=>array(self::BELONGS_TO, 'ServiceArea', array('area'='area')),
 		);
 	}
 
