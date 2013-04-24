@@ -210,6 +210,6 @@ return array (
 		'edit geom' => 'modifica geometria',
 		'delete geom' => 'elimina geometria',
 		'info geom' => 'informazioni',
-		
+		'not_a_date' => 'La data inserita non &egrave; corretta',
 );
 ?>
