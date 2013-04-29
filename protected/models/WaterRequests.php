@@ -37,8 +37,8 @@ class WaterRequests extends CActiveRecord
 	
 	
 	
-	/* TODO: Salvandolo nel DB può diventare un segnale del fatto che per questa Water Request
-	 * 		è già stato caricato uno shape file. 
+	/* TODO: Salvandolo nel DB puï¿½ diventare un segnale del fatto che per questa Water Request
+	 * 		ï¿½ giï¿½ stato caricato uno shape file. 
 	 */
 	public $shpfile;
 	public $shxfile;
@@ -610,6 +610,7 @@ class WaterRequests extends CActiveRecord
 					foreach($operative_margin as $op) {
 						$op->margin = $op->margin - $geom->geom_water_demand;
 						$op->save();
+                        // it has a parent, release the water from the dummy tables
 						if ($this->parent_wr) {
 							$parent = $this->parent_wr;
 							foreach ($parent->geometries as $g) {

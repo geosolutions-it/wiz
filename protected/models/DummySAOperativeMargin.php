@@ -2,6 +2,7 @@
 
 /**
  * This is the model class for table "dummy_service_areas_operative_margin".
+ * This holds a cache of the pending water demand on the current operative margin
  *
  * The followings are the available columns in table 'dummy_service_areas_operative_margin':
  * @property integer $id

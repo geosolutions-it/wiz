@@ -272,7 +272,7 @@ class Geometry extends CApplicationComponent
 	/**
 	 * Calculate the service area holding the geometry passed as id or wkt.
 	 * @param object $id_or_wkt ID as integer or WKT as string 
-	 * @return string The service area id, NULL if none is found.
+	 * @return array The service area info row, NULL if none is found.
 	 */
 	public static function Get_Service_Area_Detailed($id_or_wkt){
 		
