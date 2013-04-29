@@ -220,7 +220,7 @@ $layerslist= array(
             var AutoSizeAnchored = OpenLayers.Class(OpenLayers.Popup.Anchored, {
 		    	'autoSize': true
 			});
-            
+            <?php /*  REMOVED DUE TO USELESS INFO FOR CITIZENS
     		info = new OpenLayers.Control.WMSGetFeatureInfo({
 				url: '<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>', 
 					    title: 'Identify features by clicking',
@@ -249,6 +249,7 @@ $layerslist= array(
 			});
 	    	panel.addControls([info]);
 			info.activate();
+			*/ ?>
 			// ***********  FINE INFO WMS  ********************
 
 			// *** water_source_tool ***
