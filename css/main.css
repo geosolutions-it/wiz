@@ -120,11 +120,10 @@ body
 	padding: 10px 20px;
 	font-size: 200%;
 	*/
-	width: 90px;
+	width: 125px;
 	height: 80px;
 	/*background: url(../images/wizlogo.png) no-repeat center;*/
 	float:left;
-	
 }
 
 #life_logo {
@@ -600,9 +599,12 @@ div#operation-menu {
 	margin: auto;
 	overflow: visible;
 	height: 80px;
+	position:relative;
+	padding-left: 230px;
+	left: -125px;
 }
 
-div#operation-menu ul {padding: 0px; margin-top: 0px; overflow:auto; clear: right; float: left;}
+div#operation-menu ul {padding: 0px; margin-top: 0px; overflow:hidden; clear: right; float: left;}
 
 div#operation-menu ul li{display: inline-block; background: transparent; /*border: 1px solid #d6e5eb; border-right: none; */float:left; padding-top:10px}
 /*div#operation-menu ul li:last-child{border-right:1px solid #d6e5eb;}*/
