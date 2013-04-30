@@ -11,5 +11,7 @@ return array (
      'Import'=>'Importa',
      'Statistics' => 'Statistiche',
      'Water Evaluation' => 'Qualità dell\'acqua',
+	 'Personal Wfs' => 'Wfs Personali',
+	 'Personal Wms' => 'Wms Personali',
 );
 ?>

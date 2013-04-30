@@ -176,14 +176,27 @@ class WaterRequestsController extends Controller
 			$criteria->compare('status',WaterRequests::SW_NODE(WaterRequests::SUBMITTED_STATUS),false,'AND');
 			$criteria->compare('phase',1,false,'AND');
 			
-			$dataProvider=new CActiveDataProvider(
+			$dataProvider_phase_two=new CActiveDataProvider(
 				WaterRequests::model()->no_tmp(),
 					array(
     					'criteria'=>$criteria
 	    			)
 			);
-			$this->render('choose_phase',array('dataProvider'=>$dataProvider));
-			Yii::app()->end();
+			
+			$criteria = new CDbCriteria;
+			$criteria->compare('username',Yii::app()->user->id,true,'AND');
+			$criteria->compare('status',WaterRequests::SW_NODE(WaterRequests::CONFIRMED_STATUS),false,'AND');
+			$criteria->compare('phase',2,false,'AND');
+			
+			$dataProvider_phase_three=new CActiveDataProvider(
+				WaterRequests::model()->no_tmp(),
+					array(
+    					'criteria'=>$criteria
+	    			)
+			);
+			
+			$this->render('choose_phase',array('dataProvider_phase_two'=>$dataProvider_phase_two,'dataProvider_phase_three'=>$dataProvider_phase_three));
+			Yii::app()->end();		
 		}
 		
 		$model=WaterRequests::model()->findByAttributes(

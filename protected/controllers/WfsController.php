@@ -1,6 +1,6 @@
 <?php
 
-class WmsController extends Controller
+class WfsController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -38,10 +38,10 @@ class WmsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$model=new Wms('search');
+		$model=new Wfs('search');
 		$model->unsetAttributes();  // clear any default values
-	    if(isset($_GET['Wms']))
-	        $model->attributes =$_GET['Wms'];
+	    if(isset($_GET['Wfs']))
+	        $model->attributes =$_GET['Wfs'];
 		
 		$this->render('index',array(
 			'model'=>$model,
@@ -54,14 +54,14 @@ class WmsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Wms;
+		$model=new Wfs;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		$model->setScenario('new_wms');
-		if(isset($_POST['Wms']))
+		$model->setScenario('new_wfs');
+		if(isset($_POST['Wfs']))
 		{
-			$model->attributes=$_POST['Wms'];
+			$model->attributes=$_POST['Wfs'];
 			$model->username = Yii::app()->user->id;
 			if($model->save())
 				$this->redirect(array('view','name'=>$model->name));
@@ -96,9 +96,9 @@ class WmsController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Wms']))
+		if(isset($_POST['Wfs']))
 		{
-			$model->attributes=$_POST['Wms'];
+			$model->attributes=$_POST['Wfs'];
 			if($model->save())
 				$this->redirect(array('view','name'=>$model->name));
 		}
@@ -115,7 +115,7 @@ class WmsController extends Controller
 	 */
 	public function loadModel($name)
 	{
-		$model=Wms::model()->findByPk(array('username'=>Yii::app()->user->id, 'name'=>$name));
+		$model=Wfs::model()->findByPk(array('username'=>Yii::app()->user->id, 'name'=>$name));
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -127,7 +127,7 @@ class WmsController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='wms-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='wfs-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

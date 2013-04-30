@@ -60,6 +60,12 @@
 		map.addLayers([gmap]);
 		map.addControl(new OpenLayers.Control.LayerSwitcher());
         map.addControl(new OpenLayers.Control.MousePosition());
+        var panel = new OpenLayers.Control.Panel(
+                    {displayClass: 'olControlEditingToolbar'}
+                );
+        panel.addControls([new OpenLayers.Control.Navigation(), new OpenLayers.Control.ZoomBox()]);
+        map.addControl(panel, new OpenLayers.Pixel(0,10));
+
 		
 <?php if(!$edit): ?>
 		function dateConvert(date) {

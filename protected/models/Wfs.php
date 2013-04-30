@@ -1,16 +1,18 @@
 <?php
 
 /**
- * This is the model class for table "wms_personali".
+ * This is the model class for table "wfs_personali".
  *
  * The followings are the available columns in table 'zones'
  * @property string $username the owner
- * @property string $name the wms identifier
- * @property string $title the description of wms 
+ * @property string $name the wfs identifier
+ * @property string $title the description of wfs 
+ * @property string $typename
+ * @property string $typenameurl
  * @property string $url
  * @property int $projection 
  */
-class Wms extends CActiveRecord
+class Wfs extends CActiveRecord
 {
 
 	/**
@@ -27,7 +29,7 @@ class Wms extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'wms_personali';
+		return 'wfs_personali';
 	}
 
 	/**
@@ -42,8 +44,8 @@ class Wms extends CActiveRecord
 			//array('name'),
 					
 			//max_length
-			array('name,username', 'length', 'max'=>255),
-			array('title,url', 'length', 'max'=>500),
+			array('name,username,typename', 'length', 'max'=>255),
+			array('title,url,typenameurl', 'length', 'max'=>500),
 			
 			//required
 			array('name, username, projection, url', 'required'),
@@ -52,7 +54,7 @@ class Wms extends CActiveRecord
 			//array('active, searchable', 'safe'),
 			
 			//The following rule is used by search().
-			array('name, projection, username, title, url', 'safe', 'on'=>'search'),
+			array('name, projection, username, typename, typenameurl, title, url', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +79,8 @@ class Wms extends CActiveRecord
 			'name' => 'Name',
 			'projection' => 'Projection',
 			'title' => 'Title',
+			'typename' => 'Typename',
+			'typenameurl' => 'Typename Url',
 			'url' => 'Url',
 		);
 	}
@@ -93,7 +97,9 @@ class Wms extends CActiveRecord
 		$criteria->compare('projection',$this->projection,true);
 		$criteria->compare('username',Yii::app()->user->id);
 		$criteria->compare('title',$this->title);
-		$criteria->compare('url',$this->url);
+		$criteria->compare('typename',$this->typename);
+	    $criteria->compare('typenameurl',$this->typenameurl);
+	    $criteria->compare('url',$this->url);
 	    return new CActiveDataProvider(get_class($this), array(
 	        'criteria'=> $criteria,
 	        'sort'=>array(
@@ -108,7 +114,7 @@ class Wms extends CActiveRecord
 
 	public static function getLayers()
 	{
-		$layers = Wms::model()->findAllByAttributes(
+		$layers = Wfs::model()->findAllByAttributes(
 				array(
 						'username'=>Yii::app()->user->id,
 				));
@@ -117,6 +123,8 @@ class Wms extends CActiveRecord
 			$return[]=array(
 					'name'=>$l->name,
 					'title'=>$l->title,
+					'typename'=>$l->typename,
+					'typenameurl'=>$l->typenameurl,
 					'url'=>$l->url,
 					'projection'=>$l->projection,
 			);

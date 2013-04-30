@@ -56,7 +56,7 @@ class ServiceArea extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'operative_margin'=>array(self::HAS_MANY, 'SAOperativeMargin', array('area'='area')),
+			'operative_margin'=>array(self::HAS_MANY, 'SAOperativeMargin', array('area'=>'area')),
 		);
 	}
 

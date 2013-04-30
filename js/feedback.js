@@ -135,8 +135,10 @@
 	
 	function sendFeedback() {
 		paint = false;
-		$("#feedback").hide();
+		$("#feedback").show();
 		$("#feedback_panel").hide();
+		$("#screen_draw").hide();
+		$("#screen_draw_loader").hide();
 		$("body").html2canvas();
 	}
 	

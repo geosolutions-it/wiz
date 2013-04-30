@@ -1302,3 +1302,34 @@ a#wr_view_gallery.active {
 .panelEdit {
     right: 130px !important;
 }
+
+div#pressure_legend {
+  	position: absolute;
+	margin: 140px 0px 6px 16px;
+	padding: 10px 8px 8px 8px;
+	background-color: #00008b;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	z-index: 1000;
+	font-size:10px
+}
+
+div#pressure_legend div.p_legend {
+  	color: #fff;
+}
+
+div#pressure_legend div.p_legend span{
+  	display:inline-block;
+  	margin-right:4px;
+  	width:16px;
+  	height:16px;
+}
+
+div#pressure_legend div.p_legend span#p4{background-color:#c4c4c4;}
+div#pressure_legend div.p_legend span#4p8{background-color:#fa4f47;}
+div#pressure_legend div.p_legend span#8p15{background-color:#fb8a3d;}
+div#pressure_legend div.p_legend span#15p25{background-color:#91ff00;}
+div#pressure_legend div.p_legend span#25p50{background-color:#60feff;}
+div#pressure_legend div.p_legend span#p50{background-color:#4b44ff;}
+

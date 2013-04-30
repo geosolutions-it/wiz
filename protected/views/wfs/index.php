@@ -41,6 +41,8 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'name',
 		'title',
+		'typename',
+		'typenameurl',
 		'url',
 		'projection',
 		array(

@@ -17,6 +17,8 @@ $this->menu=array(
 	'attributes'=>array(
 		'name',
 		'title',
+		'typename',
+		'typenameurl',
 		'url',
 		'projection',
 	),

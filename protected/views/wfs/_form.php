@@ -19,20 +19,35 @@
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
-	<div id="description_error"></div>
+	<div id="title_error"></div>
 	
-		
+	<div class="jFormComponent" id="typename">
+		<?php echo $form->labelEx($model,'typename'); ?>
+		<?php echo $form->textField($model,'typename',array('size'=>60,'maxlength'=>250)); ?>
+		<?php echo $form->error($model,'typename'); ?>
+	</div>
+	<div id="typename_error"></div>
+	
+	<div class="jFormComponent" id="typenameurl">
+		<?php echo $form->labelEx($model,'typenameurl'); ?>
+		<?php echo $form->textField($model,'typenameurl',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->error($model,'typenameurl'); ?>
+	</div>
+	<div id="typenameurl_error"></div>
+	
 	<div class="jFormComponent" id="url">
 		<?php echo $form->labelEx($model,'url'); ?>
 		<?php echo $form->textField($model,'url',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'url'); ?>
-			</div>
-	
+	</div>
+	<div id="url_error"></div>
+		
 	<div class="jFormComponent" id="projection">
 		<?php echo $form->labelEx($model,'projection'); ?>
 		<?php echo $form->textField($model,'projection',array('size'=>60,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'projection'); ?>
-			</div>
+	</div>
+	<div id="projection_error"></div>
 	
 	
 	<div class="jFormComponent button">

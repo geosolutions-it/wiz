@@ -55,7 +55,7 @@ class SAOperativeMargin extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'city_state'=>array(self::BELONGS_TO, 'ServiceArea', array('area'='area')),
+			'city_state'=>array(self::BELONGS_TO, 'ServiceArea', array('area'=>'area')),
 		);
 	}
 
@@ -87,6 +87,9 @@ class SAOperativeMargin extends CActiveRecord
 		$criteria->compare('area',$this->area,true);
 		$criteria->compare('margin',$this->margin);
 		$criteria->compare('scenario',$this->scenario,true);
+		
+		$criteria->order = "area ASC";
+		
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -101,4 +104,17 @@ class SAOperativeMargin extends CActiveRecord
 		$baseLabel = parent::getAttributeLabel($attribute);
 		return Yii::t('waterrequest', $baseLabel);
 	}
+
+
+    /**
+     * Updates DummyServiceAreaOperativeMargin tables
+     */
+    public function afterSave(){
+        
+        // TODO:  Ciclare sulle geometrie, filtrarle in base a Phase e Status, Trovare ServiceArea o CityState relativi, calcolare OperativeMargin e SAOM
+        
+        return parent::afterSave();
+    }
+
+
 }

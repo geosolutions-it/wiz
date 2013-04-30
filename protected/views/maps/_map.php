@@ -513,8 +513,29 @@ map.addLayer(layer_<?php echo $l['name']; ?>);
 			});  
 			jQuery('#query').blur(function() {  
 				$(this).removeClass("focusField");  
-			}); 
+			});
+			
+			//jQuery('#pressure_legend').hide();
+			jQuery("input[id='OpenLayers.Control.LayerSwitcher_69_input_Pressioni\ Minime']").bind('click', function(){
+				show_hide_pressure_legend();
+			});
+			
 		});
+		var pm_legend = false;
+		function show_hide_pressure_legend() {
+			if (pm_legend) {
+				pm_legend = false;
+				jQuery('#pressure_legend').hide();
+			} 
+			else {
+				pm_legend = true;
+				jQuery('#pressure_legend').show();
+			}
+			
+			jQuery("input[id='OpenLayers.Control.LayerSwitcher_69_input_Pressioni\ Minime']").bind('click', function(){
+				show_hide_pressure_legend();
+			});
+		}
 		/* ]]> */
 	</script>
   
@@ -531,6 +552,15 @@ map.addLayer(layer_<?php echo $l['name']; ?>);
 	
     <div id="map" class="cols">
 		<div id="resize_map"></div>
+		<div id="pressure_legend">
+			<div class="p_legend" alt="" title=""><span id="p4" style="background:#c4c4c4;"></span>P < 4</div>
+			<div class="p_legend" alt="" title=""><span id="4p8" style="background:#fa4f47;"></span>4 < P < 8</div>
+			<div class="p_legend" alt="" title=""><span id="8p15" style="background:#fb8a3d;"></span>8 < P < 15</div>
+			<div class="p_legend" alt="" title=""><span id="15p25" style="background:#91ff00;"></span>15 < P < 25</div>
+			<div class="p_legend" alt="" title=""><span id="25p50" style="background:#60feff;"></span>25 < P < 50</div>
+			<div class="p_legend" alt="" title=""><span id="p50" style="background:#4b44ff;"></span>P > 50</div>
+		</div>
+
 	</div>
   
     <script type="text/javascript">

@@ -24,7 +24,25 @@ class WaterRequestParameters extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'water_request_parameters';
+		$defaultTblName = 'water_request_parameters';
+		if (Yii::app()->user->isDeveloper) {
+			$username = Yii::app()->user->id;
+			$connection=Yii::app()->db;
+			$tablename = $username.'_'.$defaultTblName;
+				
+			$sql_check = 'select * from information_schema.tables where table_name=\''.$tablename.'\';';
+			$ret = $connection->createCommand($sql_check)->query();
+			$rows=$ret->readAll();
+			if(!count($rows)) {
+				$sql_struct = 'CREATE TABLE '.$tablename.' ( LIKE '.$defaultTblName.' INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES );';
+				$connection->createCommand($sql_struct)->execute();
+				$sql_content = 'INSERT INTO '.$tablename.' SELECT * FROM '.$defaultTblName.';';
+				$connection->createCommand($sql_content)->execute();
+			}
+			return $tablename;
+		}
+		else
+			return $defaultTblName;
 	}
 
 	/**
