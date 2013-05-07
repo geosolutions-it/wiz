@@ -216,7 +216,7 @@
 						        fillColor: "red",
 						        strokeColor: "red",
 						        strokeOpacity: 1,
-						        strokeWidth: 2,
+						        strokeWidth: 2
 							};    
 		var symbolizer = OpenLayers.Feature.Vector.style["default"];
 		$('div.accordion h6').click(
