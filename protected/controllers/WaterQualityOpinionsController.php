@@ -39,8 +39,12 @@ class WaterQualityOpinionsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		if (!Yii::app()->user->checkAccess('giveEvaluation'))
-			throw new CHttpException(403,Yii::t('http_status', '403'));
+		
+		if (!Yii::app()->user->checkAccess('giveEvaluation')){
+			//throw new CHttpException(403,Yii::t('http_status', '403'));
+			Yii::app()->user->setState('redirect', Yii::app()->request->requestUri);
+            $this->redirect(array('/site/login'));
+        }
 			
 		$model_quality=new WaterQualityOpinions();
 		$model_fault=new WaterFaultOpinions();
@@ -54,7 +58,8 @@ class WaterQualityOpinionsController extends Controller
 					if(!empty($_POST['qualities_list'])) {
 						$model=new WaterQualityOpinions();
 						$model->quality = $_POST['qualities_list'];
-						$model->geom = new CDbExpression(Geometry::Transform(Geometry::ST_GeomFromText($_POST['geom'])));
+						//$model->geom = new CDbExpression(Geometry::Transform(Geometry::ST_GeomFromText($_POST['geom'])));
+						$model->geom = new CDbExpression(Geometry::Transform(Geometry::ST_GeomFromText($_POST['geom']),4326));
 						$model->username = Yii::app()->user->id;
 						if($model->save()) 
 							$this->redirect(array('view'));
@@ -67,7 +72,8 @@ class WaterQualityOpinionsController extends Controller
 					if(!empty($_POST['faults_list'])) {
 						$model=new WaterFaultOpinions();
 						$model->fault = $_POST['faults_list'];
-						$model->geom = new CDbExpression(Geometry::Transform(Geometry::ST_GeomFromText($_POST['geom'])));
+						//$model->geom = new CDbExpression(Geometry::Transform(Geometry::ST_GeomFromText($_POST['geom'])));
+						$model->geom = new CDbExpression(Geometry::Transform(Geometry::ST_GeomFromText($_POST['geom']),4326));
 						$model->username = Yii::app()->user->id;
 						if($model->save()) 
 							$this->redirect(array('view'));
@@ -97,9 +103,10 @@ class WaterQualityOpinionsController extends Controller
 	 */
 	public function actionView()
 	{
+		/*
 		if (!Yii::app()->user->checkAccess('viewEvaluation'))
 			throw new CHttpException(403,Yii::t('http_status', '403'));
-	
+		*/
 		$qualities = WaterQualities::model()->view()->findAll();
 		$qualities_property = array();
 		foreach ($qualities as $quality) { 
