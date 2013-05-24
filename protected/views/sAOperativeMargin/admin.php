@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>Yii::t('operativemargin','List SAOperativeMargin'), 'url'=>array('index')),
-	//array('label'=>'Create SAOperativeMargin', 'url'=>array('create')),
+	array('label'=>Yii::t('operativemargin','Create SAOperativeMargin'), 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

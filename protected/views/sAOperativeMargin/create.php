@@ -5,8 +5,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SAOperativeMargin', 'url'=>array('index')),
-	array('label'=>'Manage SAOperativeMargin', 'url'=>array('admin')),
+	array('label'=>Yii::t('operativemargin','List SAOperativeMargin'), 'url'=>array('index')),
+	array('label'=>Yii::t('operativemargin','Manage SAOperativeMargin'), 'url'=>array('admin')),
 );
 ?>
 

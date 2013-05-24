@@ -11,7 +11,9 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'area'); ?>
-		<?php echo $form->textField($model,'area',array('size'=>60,'maxlength'=>254)); ?>
+		<?php //echo $form->textField($model,'area',array('size'=>60,'maxlength'=>254));
+              echo $form->dropdownList($model, 'area', CHtml::listData(ServiceArea::model()->findAll(), 'area', 'desc_area'));
+        ?>
 		<?php echo $form->error($model,'area'); ?>
 	</div>
 

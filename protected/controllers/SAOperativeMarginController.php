@@ -69,8 +69,13 @@ class SAOperativeMarginController extends Controller
 		if(isset($_POST['SAOperativeMargin']))
 		{
 			$model->attributes=$_POST['SAOperativeMargin'];
+			$dummy = new DummySAOperativeMargin;
+            $dummy->attributes=$_POST['SAOperativeMargin'];
 			if($model->save())
+            {
+                $dummy->save(FALSE);
 				$this->redirect(array('view','id'=>$model->id));
+            }
 		}
 
 		$this->render('create',array(
@@ -97,11 +102,15 @@ class SAOperativeMarginController extends Controller
                                                         array(  'area'=>$model->area,
                                                                 'scenario'=>$model->scenario)
                                                     );
-            $diff = $model->margin - $dummy->margin;
-
-			$model->attributes=$_POST['SAOperativeMargin'];
-            $dummy->margin = $model->margin - $diff;
-            $dummy->save(FALSE);
+            if($dummy){                                                    
+                $diff = $model->margin - $dummy->margin;
+    			$model->attributes=$_POST['SAOperativeMargin'];
+                $dummy->margin = $model->margin - $diff;
+                $dummy->save(FALSE);
+            }
+            else {
+                $model->attributes=$_POST['SAOperativeMargin'];
+            }
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -121,8 +130,13 @@ class SAOperativeMarginController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
-
+			$model = $this->loadModel($id);
+            $dummy=DummySAOperativeMargin::model()->findByAttributes(
+                                                                    array(  'area'=>$model->area,
+                                                                            'scenario'=>$model->scenario)
+                                                                );
+            $model->delete();
+            $dummy->delete();
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -151,6 +165,9 @@ class SAOperativeMarginController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['SAOperativeMargin']))
 			$model->attributes=$_GET['SAOperativeMargin'];
+
+		if(isset($_GET['SAOperativeMargin']['city_state']))
+			$model->area=$_GET['SAOperativeMargin']['city_state'];
 
 		$this->render('admin',array(
 			'model'=>$model,

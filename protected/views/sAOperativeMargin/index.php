@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	//array('label'=>Yii::t('operativemargin','Create SAOperativeMargin'), 'url'=>array('create')),
+	array('label'=>Yii::t('operativemargin','Create SAOperativeMargin'), 'url'=>array('create')),
 	array('label'=>Yii::t('operativemargin','Manage SAOperativeMargin'), 'url'=>array('admin')),
 );
 ?>
