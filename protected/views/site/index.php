@@ -172,13 +172,33 @@ endif;
 ?> 
 
 <br/><br/>
-<a href=<?php echo $this->createUrl('site/page',array('view'=>'wiz4all')) ?>><img src="images/wiz4all.png"/></a>
+<a href='<?php echo $this->createUrl('site/page',array('view'=>'wiz4all')) ?>'><img src="images/wiz4all.png"/></a>
 Mira a diffondere tra cittadini e imprese (ma anche professionisti e esperti del settore) la percezione della necessità di tener conto
 delle condizioni e disponibilità futura di acqua potabile nelle loro scelte di vita: mette infatti a loro disposizione una serie di
 informazioni, solitamente di difficile reperibilità (disponibilità di risorsa, fonti d’acqua e molto altro). Solo così sarà possibile
 una <b><i>"gestione partecipata"</i></b> dell'acqua da parte dei cittadini stessi, grazie anche alla possibilità di inserire una serie
 di dati che vanno ad aumentare la base di conoscenza comune sulla situazione idrica del territorio. <b>L'accesso è pubblico</b>.
-
+<?php $imghtml=array(
+                    CHtml::image('images/water_info_box.png', 'Mappa informativa'),
+                    CHtml::image('images/quality_view_box.png', 'Valutazioni'),
+                    CHtml::image('images/quality_create_box.png', 'Segnala')
+                    ); ?>
+<div style="text-align: center;"> 
+<table class="homepage_menu_table">
+    <caption align="bottom" style="text-align: center">Mappa Informativa</caption>
+<tr><td><?php
+      echo CHtml::link($imghtml[0], array('waterInfo/index'), array('title'=>'Visualizza strati informativi', 'class'=>'homepage_menu_item'));
+?></td></tr>
+</table>
+<table class="homepage_menu_table">
+<caption align="bottom" style="text-align: center">Visualizza Valutazioni</caption>
+<tr><td>    <?php      echo CHtml::link($imghtml[1], array('waterQualityOpinions/view'), array('title'=>'Visualizza valutazioni', 'class'=>'homepage_menu_item'));  ?></td></tr>
+</table>
+<table class="homepage_menu_table">
+<caption align="bottom" style="text-align: center">Invia Valutazione</caption>
+<tr><td>    <?      echo CHtml::link($imghtml[2], array('waterQualityOpinions/create'), array('title'=>'Invia valutazioni e segnala guasti', 'class'=>'homepage_menu_item')); ?></td></tr>
+</table>
+</div>
 
 <br/><br/>
 <a href=<?php echo $this->createUrl('site/login') ?>><img src="images/wiz4planner.png"/></a>

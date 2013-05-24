@@ -1333,3 +1333,15 @@ div#pressure_legend div.p_legend span#15p25{background-color:#91ff00;}
 div#pressure_legend div.p_legend span#25p50{background-color:#60feff;}
 div#pressure_legend div.p_legend span#p50{background-color:#4b44ff;}
 
+.homepage_menu_table {
+    width:auto !important;
+    display: inline;
+}
+
+.homepage_menu_item {
+    padding: 50px;
+}
+
+.homepage_menu_item > img {
+    width: 90px;
+}
