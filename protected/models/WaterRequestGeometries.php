@@ -253,8 +253,11 @@ class WaterRequestGeometries extends CActiveRecord
 			if($elevation_xml===false){
 				$elevation = "DEM Offline";
 			}else{
-				$cansave = true;
-				$elevation = $elevation_xml->children('gml', true)->{'featureMember'}[0]->children('acque', true)->{Yii::app()->params['geoserver']['layer_dem']}->{'GRAY_INDEX'};
+                   if($elevation_xml->children('gml', true)->children()->count() > 0){
+                       $cansave = true;
+                       $elevation = $elevation_xml->children('gml', true)->{'featureMember'}[0]->children('acque', true)->{Yii::app()->params['geoserver']['layer_dem']}->{'GRAY_INDEX'};
+                   }else
+                       $elevation = "Errore Geoserver";
 			}
 		}
 		catch(Exception $e) {
