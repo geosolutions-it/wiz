@@ -92,7 +92,16 @@ class SAOperativeMarginController extends Controller
 
 		if(isset($_POST['SAOperativeMargin']))
 		{
+			// Update related DummySAOperativeMargin as well
+			$dummy=DummySAOperativeMargin::model()->findByAttributes(
+                                                        array(  'area'=>$model->area,
+                                                                'scenario'=>$model->scenario)
+                                                    );
+            $diff = $model->margin - $dummy->margin;
+
 			$model->attributes=$_POST['SAOperativeMargin'];
+            $dummy->margin = $model->margin - $diff;
+            $dummy->save(FALSE);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
