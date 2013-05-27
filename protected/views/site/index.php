@@ -196,7 +196,7 @@ di dati che vanno ad aumentare la base di conoscenza comune sulla situazione idr
 </table>
 <table class="homepage_menu_table">
 <caption align="bottom" style="text-align: center">Invia Valutazione</caption>
-<tr><td>    <?      echo CHtml::link($imghtml[2], array('waterQualityOpinions/create'), array('title'=>'Invia valutazioni e segnala guasti', 'class'=>'homepage_menu_item')); ?></td></tr>
+<tr><td>    <?php      echo CHtml::link($imghtml[2], array('waterQualityOpinions/create'), array('title'=>'Invia valutazioni e segnala guasti', 'class'=>'homepage_menu_item')); ?></td></tr>
 </table>
 </div>
 

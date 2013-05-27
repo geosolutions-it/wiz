@@ -264,7 +264,9 @@ $layerslist= array(
 				);
 						
     		water_source_tool = new OpenLayers.Control.WMSGetFeatureInfo({
-				url: '<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>', 
+
+				url: '<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].'/'.Yii::app()->params['geoserver']['workspace'].Yii::app()->params['geoserver']['wms']; ?>', 
+
 			    title: 'Show where your water comes from',
 			    displayClass:'wizControlWaterSrcTool',
 			    layers: [macro_area],
@@ -346,7 +348,9 @@ $layerslist= array(
 			// *** service_area_margin_tool ***
 									
     		var sa_margin_tool = new OpenLayers.Control.WMSGetFeatureInfo({
-				url: '<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>', 
+
+				url: '<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].'/'.Yii::app()->params['geoserver']['workspace'].Yii::app()->params['geoserver']['wms']; ?>', 
+
 			    title: 'Show water resource margins',
 			    displayClass:'wizControlWaterMarginTool',
 			    layers: [layer_service_areas],
