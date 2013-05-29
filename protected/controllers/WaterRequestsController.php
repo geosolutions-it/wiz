@@ -292,7 +292,10 @@ class WaterRequestsController extends Controller
 			if (isset($_POST['save-button'])) {
 				$model->updateStatus(WaterRequests::SAVED_STATUS);
 			}
-			else {
+            else if (isset($_POST['cancel-button'])) {
+                $model->updateStatus(WaterRequests::CANCELLED_STATUS);
+            }
+            else if (isset($_POST['submit-button'])) {
 				$model->updateStatus(WaterRequests::SUBMITTED_STATUS);
 			}
 			//Yii::log(print_r(($model->isEditable())?'TRUE':'FALSE', true), CLogger::LEVEL_INFO);
