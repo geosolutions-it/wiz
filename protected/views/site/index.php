@@ -63,7 +63,7 @@
 	Il sistema permette anche di generare un file <b>EPANET</b> associato ad ogni <i>Richieste di Risorsa Idrica</i>, cliccando sull'icona
 	<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/document_epanet.png"/>.
 	<br/>
-	Sono disponibili anche funzionalità che permettono di modificare la lista delle destinazioni d'uso
+	Sono disponibili anche funzionalit&agrave; che permettono di modificare la lista delle destinazioni d'uso
 	<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/zones.png"/>, i parametri utilizzati per il calcolo degli abitanti
 	equivalenti <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/parameters.png"/> e le formule per il calcolo dell'idroesigenza
 	<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/formulas.png"/>.
@@ -92,7 +92,7 @@ territoriale:</p>
 	<li>l'<b>ubicazione e le caratteristiche</b> degli impianti che garantiscono il servizio (serbatoi, potabilizzazione,
 		pompaggio,ecc)</li>
 	<li>le <b>caratteristiche tecniche e la planimetria</b> della rete acquedotto</li>
-	<li>i <b>parametri di qualità dell'acqua</b> percepiti dall'utente. 
+	<li>i <b>parametri di qualit&agrave; dell'acqua</b> percepiti dall'utente. 
 		Grazie a WIZ4All avete anche la possibilit&agrave; &ndash; e opportunit&agrave; &ndash; di dare
 		un vostro importante contributo al raggiungimento di una sempre pi&ugrave; corretta ed efficiente
 		gestione dell'acqua potabile, aiutandoci nella <b>rilevazione delle sue caratteristiche qualitative</b>.
@@ -112,72 +112,33 @@ qualit&agrave; da voi percepita dell'acqua potabile erogata, </span><b><?php ech
 <!-- Guest -->
 <h1>Benvenuti in <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<!-- 
 <p>
-<b>WIZ - WaterIZe spatial planning:</b> encompass future drinkwater management conditions to adapt
-to climate change<br/> (<b>"Acquifichiamo" la pianificazione territoriale:</b> includere le condizioni future di
-gestione dell'acqua potabile per adattarsi al cambiamento climatico)
-</p>
--->
-<!--
-<p>
-<b>WIZ - WaterIZe spatial planning ("Acquifichiamo" la pianificazione territoriale):</b>
-includere le condizioni future di
-gestione dell'acqua potabile per adattarsi al cambiamento climatico)
-</p>
-
-<p>
-WIZ &egrave; un grande progetto ambientale cofinanziato dal Programma LIFE+ dell'Unione Europea.<br/>I
-partner che realizzano il progetto sono: <b>Acque Spa</b> (Pisa, IT), Beneficiario coordinatore; <b>Autorit&agrave;
-di Bacino del Fiume Arno</b> (Firenze, IT), <b>Ingegnerie Toscane Srl </b>(Firenze, IT), <b>Fundaci&oacute;n
-Instituto Tecnol&oacute;gico de Galicia </b>(A Coru&ntilde;a, ES).
-</p>
-
-<p>
-L'obiettivo generale di WIZ &egrave; l'integrazione di concetti e procedure per la protezione e gestione
-sostenibile dell'acqua nei processi di pianificazione urbanistica e dell'ambiente edificato in generale,
-tenendo conto degli impatti del cambiamento climatico. Questa piattaforma sar&agrave; in grado di
-restituire rilevanti informazioni alle autorit&agrave; locali coinvolte nei processi di decision-making, in
-modo <b>da garantire, all'interno della pianificazione territoriale, l'assunzione di decisioni
-"informate"</b>.
-</p>
-<p>
-WIZ mira, inoltre, a diffondere tra i cittadini la percezione della necessit&agrave; di tener conto delle
-condizioni e disponibilit&agrave; futura di acqua nelle loro scelte di vita. Per questo motivo la piattaforma
-mira anche ad una <b>"gestione partecipata" dell'acqua da parte dei cittadini stessi</b>, grazie a tutta
-una serie di informazioni, solitamente di difficile reperibilit&agrave;, che sono messe a disposizione del
-singolo utente che effettuer&agrave; una richiesta al sistema. I dati immessi dai cittadini, inoltre, potranno
-contribuire ad aumentare la base di conoscenza sulle condizioni idriche del territorio, consentendo
-una maggiore precisione ed attendibilit&agrave; delle risposte.
-</p>
--->
-<p>
-La piattaforma WIZ è stata realizzata all'interno dell'omonimo progetto comunitario LIFE+ -
+La piattaforma WIZ &egrave; stata realizzata all'interno dell'omonimo progetto comunitario LIFE+ -
 <b><a href="http://www.wiz-life.eu" target="_blank">WIZ: WaterIZe spatial planning</a></b>
 (<i>"Acquifichiamo" la pianificazione territoriale: includere le condizioni future di gestione dell'acqua potabile per adattarsi al
-cambiamento climatico</i>): il progetto è co-finanziato dalla Comunità Europea e portato avanti da Acque Spa, l'Autorità di Bacino
+cambiamento climatico</i>): il progetto &egrave; co-finanziato dalla Comunit&agrave; Europea e portato avanti da Acque Spa, l'Autorit&agrave; di Bacino
 del Fiume Arno, Ingegnerie Toscane Srl, e il partner spagnolo Fundación Instituto Tecnológico de Galicia.
 <br/><br/>
 La piattaforma WIZ comprende due servizi:
 <?php if(Yii::app()->user->isGuest): ?>
-<a href=<?php echo $this->createUrl('site/page',array('view'=>'wiz4all')) ?>>WIZ4ALL</a>
+<a href="<?php echo $this->createUrl('site/page',array('view'=>'wiz4all')) ?>">WIZ4ALL</a>
 <?php
 endif;
 ?>
 e
 <?php if(Yii::app()->user->isGuest): ?>
-<a href=<?php echo $this->createUrl('site/login') ?>>WIZ4PLANNERS</a>.
+<a href="<?php echo $this->createUrl('site/login') ?>">WIZ4PLANNERS</a>.
 <?php
 endif;
 ?> 
 
 <br/><br/>
 <a href='<?php echo $this->createUrl('site/page',array('view'=>'wiz4all')) ?>'><img src="images/wiz4all.png"/></a>
-Mira a diffondere tra cittadini e imprese (ma anche professionisti e esperti del settore) la percezione della necessità di tener conto
-delle condizioni e disponibilità futura di acqua potabile nelle loro scelte di vita: mette infatti a loro disposizione una serie di
-informazioni, solitamente di difficile reperibilità (disponibilità di risorsa, fonti d’acqua e molto altro). Solo così sarà possibile
-una <b><i>"gestione partecipata"</i></b> dell'acqua da parte dei cittadini stessi, grazie anche alla possibilità di inserire una serie
-di dati che vanno ad aumentare la base di conoscenza comune sulla situazione idrica del territorio. <b>L'accesso è pubblico</b>.
+Mira a diffondere tra cittadini e imprese (ma anche professionisti e esperti del settore) la percezione della necessit&agrave; di tener conto
+delle condizioni e disponibilit&agrave; futura di acqua potabile nelle loro scelte di vita: mette infatti a loro disposizione una serie di
+informazioni, solitamente di difficile reperibilit&agrave; (disponibilit&agrave; di risorsa, fonti d’acqua e molto altro). Solo cos&igrave; sar&agrave; possibile
+una <b><i>"gestione partecipata"</i></b> dell'acqua da parte dei cittadini stessi, grazie anche alla possibilit&agrave; di inserire una serie
+di dati che vanno ad aumentare la base di conoscenza comune sulla situazione idrica del territorio. <b>L'accesso &egrave; pubblico</b>.
 <?php $imghtml=array(
                     CHtml::image('images/water_info_box.png', 'Mappa informativa'),
                     CHtml::image('images/quality_view_box.png', 'Valutazioni'),
@@ -201,29 +162,27 @@ di dati che vanno ad aumentare la base di conoscenza comune sulla situazione idr
 </div>
 
 <br/><br/>
-<a href=<?php echo $this->createUrl('site/login') ?>><img src="images/wiz4planner.png"/></a>
-È in grado di fornire rilevanti informazioni alle autorità locali coinvolte nei processi di <b>pianificazione territoriale</b>,
+<a href="<?php echo $this->createUrl('site/login') ?>"><img src="images/wiz4planner.png"/></a>
+&Egrave; in grado di fornire rilevanti informazioni alle autorit&agrave; locali coinvolte nei processi di <b>pianificazione territoriale</b>,
 rappresentando uno strumento di guida nelle loro scelte che mira a garantire l'assunzione di <b><i>decisioni "informate"</i></b>. 
-L'obiettivo è infatti quello di integrare concetti e procedure per la protezione e gestione sostenibile dell'acqua nei processi di
+L'obiettivo &egrave; infatti quello di integrare concetti e procedure per la protezione e gestione sostenibile dell'acqua nei processi di
 pianificazione urbanistica e dell'ambiente edificato in generale, tenendo conto degli impatti del cambiamento climatico.
-<b>L'accesso è riservato agli utenti autorizzati</b> (per richieste e informazioni contattare 
+<b>L'accesso &egrave; riservato agli utenti autorizzati</b> (per richieste e informazioni contattare 
 <a href="mailto:wiz@wiz-life.eu">wiz@wiz-life.eu</a>).
 <?php if(Yii::app()->user->isGuest): ?>
-Per accedere clicca <a href=<?php echo $this->createUrl('site/login') ?>>qui</a>.
+Per accedere clicca <a href="<?php echo $this->createUrl('site/login') ?>">qui</a>.
 <?php
 endif;
 ?>
 </p>
 
-
-
 <?php endif; ?>
 
-<?php if(Yii::app()->user->isGuest) { ?>
+<?php if(Yii::app()->user->isGuest) { /*
 <p>
 <!-- Per accedere al sistema, segui il link di <a href=<?php echo $this->createUrl('site/login') ?>>Login</a>. -->
 </p>
-<?php } else { 
+*/  } else { 
 		$user = Users::model()->findByPk(Yii::app()->user->id);
 		if(!$user->approved) { ?>
 			<div class="flash-notice">

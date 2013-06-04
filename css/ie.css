@@ -49,3 +49,8 @@ button, input.button {position:relative;top:0.25em;}
 	height: 100%;
 	overflow: auto;
 }
+
+.homepage_menu_table {
+    width:auto !important;
+    display: inline !important;
+}

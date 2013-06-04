@@ -1335,7 +1335,7 @@ div#pressure_legend div.p_legend span#p50{background-color:#4b44ff;}
 
 .homepage_menu_table {
     width:auto !important;
-    display: inline;
+    display: inline-block;
 }
 
 .homepage_menu_item {
