@@ -15,11 +15,12 @@ $layerslist= array(
 		,'po' => array('nome'=>'Captazione da Campi - Pozzi', 'layer'=>'po', 'visibility'=>'false' , 'group'=>'Fonti')
 		,'so' => array('nome'=>'Captazione da Sorgenti', 'layer'=>'so', 'visibility'=>'false' , 'group'=>'Fonti')
 		,'pt' => array('nome'=>'Impianti di Potabilizzazione', 'layer'=>'pt', 'visibility'=>'false' , 'group'=>'Impianti')
-		,'ad' => array('nome'=>'Adduttrici', 'layer'=>'ad', 'visibility'=>'false' , 'group'=>'Impianti')
+		//,'ad' => array('nome'=>'Adduttrici', 'layer'=>'ad', 'visibility'=>'false' , 'group'=>'Impianti')
 		,'ac' => array('nome'=>'Opere di Accumulo', 'layer'=>'ac', 'visibility'=>'false' , 'group'=>'Impianti')
 		,'pg' => array('nome'=>'Impianti di Pompaggio', 'layer'=>'pg', 'visibility'=>'false' , 'group'=>'Impianti')
 		//,'di' => array('nome'=>'Rete di Distribuzione', 'layer'=>'di')
-		,'rete' => array('nome'=>'Rete di Distribuzione', 'layer'=>'rete', 'visibility'=>'false' , 'visibility'=>'false')
+		,'rete' => array('nome'=>'Rete di Distribuzione', 'layer'=>'acq_con', 'visibility'=>'false' , 'visibility'=>'false')
+        ,'pressioni' => array('nome'=>'Pressioni Minime', 'layer'=>'pressioni', 'visibility'=>'false' , 'visibility'=>'false')   
 
 );
 
@@ -136,7 +137,7 @@ $layerslist= array(
 <?php foreach($layerslist as $l_id => $l) {	?>
 			var layer_<?php echo $l['layer']; ?> = new OpenLayers.Layer.WMS(
 					"<?php echo $l['nome'] ?>",
-    				"<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>",
+    				"<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].'/'.Yii::app()->params['geoserver']['workspace'].Yii::app()->params['geoserver']['wms']; ?>",
 		    		{
 				        layers: "<?php echo $l['layer'] ?>",  // 3003
 				        transparent: 'true',
@@ -220,11 +221,11 @@ $layerslist= array(
             var AutoSizeAnchored = OpenLayers.Class(OpenLayers.Popup.Anchored, {
 		    	'autoSize': true
 			});
-            <?php /*  REMOVED DUE TO USELESS INFO FOR CITIZENS
-    		info = new OpenLayers.Control.WMSGetFeatureInfo({
-				url: '<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>', 
+            
+            info = new OpenLayers.Control.WMSGetFeatureInfo({
+				url: '<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].'/'.Yii::app()->params['geoserver']['workspace'].Yii::app()->params['geoserver']['wms']; ?>', 
 					    title: 'Identify features by clicking',
-					    layers: [<?php $p=''; foreach($layerslist as $l_id => $l){ echo $p.'layer_'.$l['layer']; $p=',';} ?>],
+					    layers: [<?php $p=''; foreach($layerslist as $l_id => $l){ if($l_id != 'service_areas')echo $p.'layer_'.$l['layer']; $p=',';} ?>],
 					    queryVisible: true,
 					    //infoFormat: 'application/vnd.ogc.gml',
 					    //hover:true,  // disabilitato fino a che non cambio il format 
@@ -249,13 +250,13 @@ $layerslist= array(
 			});
 	    	panel.addControls([info]);
 			info.activate();
-			*/ ?>
+			
 			// ***********  FINE INFO WMS  ********************
 
 			// *** water_source_tool ***
 			var macro_area = new OpenLayers.Layer.WMS(
 					"M",
-    				"<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>",
+    				"<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].'/'.Yii::app()->params['geoserver']['workspace'].Yii::app()->params['geoserver']['wms']; ?>",
 		    		{
 				        layers: "macro_area",  // 3003
 				        transparent: 'true',
