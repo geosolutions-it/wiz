@@ -37,8 +37,8 @@ class WaterRequests extends CActiveRecord
 	
 	
 	
-	/* TODO: Salvandolo nel DB pu� diventare un segnale del fatto che per questa Water Request
-	 * 		� gi� stato caricato uno shape file. 
+	/* TODO: Salvandolo nel DB può diventare un segnale del fatto che per questa Water Request
+	 * 		è già stato caricato uno shape file. 
 	 */
 	public $shpfile;
 	public $shxfile;
@@ -556,7 +556,7 @@ class WaterRequests extends CActiveRecord
 	public function getParentWDUsage($include_current=true)
 	{
 		if (($this->phase==2)||($this->phase==3)) {
-			$parents = WaterRequests::model()->findAllByAttributes(
+			$brothers = WaterRequests::model()->findAllByAttributes(
 				array(
 					'username'=>$this->user->username,
 					'phase'=>$this->phase,
@@ -565,10 +565,10 @@ class WaterRequests extends CActiveRecord
 			);
 			
 			$usage = 0;
-			foreach($parents as $parent) {
-				if ((!$include_current) && ($parent->id == $this->id))
+			foreach($brothers as $brother) {
+				if ((!$include_current) && ($brother->id == $this->id))
 					continue;
-				$usage+=$parent->total_water_demand;	
+				$usage+=$brother->total_water_demand;	
 			}
 			return $usage;
 			
@@ -595,7 +595,7 @@ class WaterRequests extends CActiveRecord
 					$operative_margin = SAOperativeMargin::model()->findAll('lower(area)=:area',array(':area'=>strtolower($service_area['area'])));
 					$dummy_operative_margin = DummySAOperativeMargin::model()->findAll('lower(area)=:area',array(':area'=>strtolower($service_area['area'])));
 					if ((count($operative_margin)==0) || (count($dummy_operative_margin)==0)) {
-						Yii::log('Manca il margine operativo dell\'area di servizio. area='.$city_state , CLogger::LEVEL_INFO, 'updateOperativeMargin');  // DEBUG
+						Yii::log('Manca il margine operativo dell\'area di servizio. area='.$service_area['area'] , CLogger::LEVEL_INFO, 'updateOperativeMargin');  // DEBUG
 						return;
 					}
 				}

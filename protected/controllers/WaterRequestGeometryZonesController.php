@@ -509,8 +509,8 @@ class WaterRequestGeometryZonesController extends Controller
 							//echo $geom_zone_property_model->parameter;  // DEBUG
 						}else{
 							Yii::log('PROPERTY MODEL NON VALIDA' , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
-							Yii::log(print_r($geom_zone_property_model->attributes, true) , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
-							Yii::log(print_r($geom_zone_property_model->getErrors(), true) , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
+							Yii::log($geom_zone_property_model->attributes , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
+							Yii::log($geom_zone_property_model->getErrors(), CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
 							$error_status = 'Error: ';
 							foreach($geom_zone_property_model->getErrors() as $attr => $err_msg)
 								$error_status = $error_status.$attr.': '.implode(',',$err_msg).' ';
