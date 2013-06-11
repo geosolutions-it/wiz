@@ -2,11 +2,6 @@
     <page_header>
         <table style="width: 100%; border-bottom: solid 2px #006AB2;">
             <tr>
-            	<!--
-                <td style="text-align: left;    width: 33%"></td>
-                <td style="text-align: center;    width: 34%"></td>
-                <td style="text-align: right;    width: 33%"></td>
-               -->
                	<?php $img = CHtml::image("images/wizlogo.png",""); ?>
                 <td style="text-align: left;    width: 35%"><?php echo $img; ?></td>
                 <td style="text-align: right;    width: 65%">
@@ -20,12 +15,6 @@
     </page_header>
     <page_footer>
         <table style="width: 100%; border-top: solid 1px #006AB2;">
-        	<!--
-            <tr>
-                <td style="text-align: left;    width: 50%"></td>
-                <td style="text-align: right;    width: 50%"></td>
-            </tr>
-           -->
 			<tr>
                 <td style="text-align: left;    width: 70%"><?php echo CHtml::encode(ucfirst($data->user->title)).' '.CHtml::encode($data->user->first_name).' '.CHtml::encode($data->user->last_name);?></td>
                 <td style="text-align: right;    width: 30%">page [[page_cu]] / [[page_nb]]</td>
@@ -37,8 +26,8 @@
 		<qrcode value="<?php echo CController::createAbsoluteUrl('waterRequests/view',array('id'=>$data->id)); ?>" style="width: 20mm; background-color: white; color: black; border:none"></qrcode>	
 	</div>
     <br/>
-   	<div style="font-size: 14pt; text-align: center">
-		<b><?php echo CHtml::encode($data->project); ?></b>
+   	<div style="font-size: 14pt; text-align: center; font-weight: bold">
+		<?php echo CHtml::encode($data->project); ?>
 	</div>
 	<br/>
     <table style="width: 100%; border: solid 1px #C9E0ED">
