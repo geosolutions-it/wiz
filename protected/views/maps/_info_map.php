@@ -127,7 +127,7 @@ $layerslist= array(
 			            format: 'image/png'
 			        },
 			        { opacity: .5
-			         // ,displayOutsideMaxExtent:true
+			            ,displayOutsideMaxExtent:true
 			        	,transitionEffect: 'resize'
 					}
 			    );
