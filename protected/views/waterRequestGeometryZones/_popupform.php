@@ -52,9 +52,12 @@ $editing = isset($zone_model);
 	<div class="row">
 		<?php echo $form->labelEx($model,'zone_name',array('for'=>'WaterRequestGeometryZones_zone_name')); ?>
 		<?php
-			$zone_list = ($editing)?
+			$zone_list = Zones::zonesList(1);
+			             /*
+                         ($editing)?
 							Zones::zonesList($model->geometry->wr->phase):
 							Zones::zonesList($geom_model->wr->phase);
+                          */
 			echo $form->dropDownList(
                     $model,
                     'zone_name',
