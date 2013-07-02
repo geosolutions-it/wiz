@@ -317,6 +317,7 @@ class WaterRequestGeometryZonesController extends Controller
 						$geom_zone_model->save();
 						
 						$_propserror = false;
+						$error_status = 'ok';
 						foreach($sent_props as $geom_zone_property_model){
 							$geom_zone_property_model->geometry_zone=$geom_zone_model->id;
 							//$geom_zone_property_model->zone = $geom_zone_model;
@@ -331,10 +332,12 @@ class WaterRequestGeometryZonesController extends Controller
 								$error_status = 'Error: ';
 								foreach($geom_zone_property_model->getErrors() as $attr => $err_msg)
 									$error_status = $error_status.$attr.': '.implode(',',$err_msg).' ';
-								echo CJSON::encode(array('status'=>$error_status)); // DEBUG
 								$_propserror = true;
 							}
 						}
+                        if($_propserror){
+							echo CJSON::encode(array('status'=>$error_status));
+                        }
 						$_error = $_propserror;
 						//echo 'after foreach: '.$_propserror.' ';  // DEBUG
 					}
@@ -501,6 +504,7 @@ class WaterRequestGeometryZonesController extends Controller
 					$geom_zone_model->save();
 					
 					$_propserror = false;
+                    $error_status = 'ok';
 					foreach($sent_props as $geom_zone_property_model){
 						$geom_zone_property_model->geometry_zone=$geom_zone_model->id;
 						if ($geom_zone_property_model->validate()) {
@@ -508,16 +512,19 @@ class WaterRequestGeometryZonesController extends Controller
 							$geom_zone_property_model->save();	
 							//echo $geom_zone_property_model->parameter;  // DEBUG
 						}else{
-							Yii::log('PROPERTY MODEL NON VALIDA' , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
-							Yii::log($geom_zone_property_model->attributes , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
-							Yii::log($geom_zone_property_model->getErrors(), CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
+							//Yii::log('PROPERTY MODEL NON VALIDA' , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
+							//Yii::log($geom_zone_property_model->attributes , CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
+							//Yii::log($geom_zone_property_model->getErrors(), CLogger::LEVEL_INFO, 'actionUpdate');  // DEBUG
 							$error_status = 'Error: ';
 							foreach($geom_zone_property_model->getErrors() as $attr => $err_msg)
 								$error_status = $error_status.$attr.': '.implode(',',$err_msg).' ';
-							echo CJSON::encode(array('status'=>$error_status)); // DEBUG
 							$_propserror = true;
-						}					}
-					$_error = $_propserror;
+						}
+                    }
+                    if($_propserror){
+                        echo CJSON::encode(array('status'=>$error_status));
+                    }
+                    $_error = $_propserror;
 					//echo 'after foreach: '.$_propserror.' ';  // DEBUG
 				}
 				else
