@@ -77,13 +77,10 @@ $layerslist= array(
 		    // Geoscopio come BaseLayer
 			var ortofoto = new OpenLayers.Layer.WMS(
 			        "Ortofoto 10k",
-	                //"http://web.rete.toscana.it/sgrwms/com.rt.wms.RTmap?",
 			        "<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>",
 	                {
-			            layers: 'otf10k10',  // must be 900913
+                        layers: '<?php echo Yii::app()->params['geoserver']['base_layers']['ofc'] ?>',// must be 900913
 			            version:'1.1.0',
-			            //srs:'EPSG:3003',
-			            //transparent: 'true',
 			            format: 'image/png'
 			        },
 			        { 
@@ -106,10 +103,9 @@ $layerslist= array(
 		    // Geoscopio come BaseLayer
 			var ctr10 = new OpenLayers.Layer.WMS(
 			        "CTR 10k",
-	                //"http://web.rete.toscana.it/sgrwms/com.rt.wms.RTmap?",
 			        "<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>",
 	                {
-			        	layers: 'idrst10k',  // must be 900913
+                        layers: '<?php echo Yii::app()->params['geoserver']['base_layers']['ctr10k'] ?>',// must be 900913
 			            version:'1.1.0',
 			            format: 'image/png'
 				            
@@ -134,10 +130,9 @@ $layerslist= array(
 
 			var ctr2 = new OpenLayers.Layer.WMS(
 			        "CTR 2k",
-	                //"http://web.rete.toscana.it/sgrwms/com.rt.wms.RTmap?",
 			        "<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>",
 	                {
-			        	layers: 'rst2k_liv3',  // must be 900913
+                        layers: '<?php echo Yii::app()->params['geoserver']['base_layers']['ctr2k'] ?>',  // must be 900913
 			            version:'1.1.0',
 			            format: 'image/png'
 				            

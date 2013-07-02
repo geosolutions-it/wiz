@@ -1,15 +1,16 @@
 <?php
- return array (
+
+ return array (
   'language' => 'it',
   'adminEmail' => 'acque@cpr.it',
   'debugEmail' => 'acque@cpr.it',
   'debug_email' => true,
-  'block_email' => false,
+  'block_email' => true,
   'geoserver' => 
   array (
     'version' => '1.1.0',
     'protocol' => 'http://',
-    'ip' => '131.114.33.66',
+    'ip' => '127.0.0.0',
     'port' => 80,
     'path' => '/geoserver',
     'wms' => '/wms',
@@ -22,14 +23,19 @@
     'layer_dem' => 'DTM10m',
     'service_areas_layer_srid' => 3003,
     'wfs' =>  '/wfs',
-	'pdf_wms'=>array(
-			'default'=>'idigm50kgrey',
-			'1000'=>'rst2k_liv3',
-			'11000'=>'idrst10k',
-			'60000'=>'idigm50kgrey',
-			'200000'=>'rst100k',
-	),
-  		
+    'pdf_wms'=>array(
+            'default'=>'rt_ctr.10k',
+            '1000'=>'rt_ctr.10k',
+            '11000'=>'rt_ctr.10k',
+            '60000'=>'rt_ctr.10k',
+            '200000'=>'rt_ctr.10k',
+    ),
+    'base_layers'=>array(
+            'ctr2k'=>'rt_ctr.2k.liv3',
+            'ctr10k'=>'rt_ctr.10k',
+            'ofc'=>'rt_ofc.10k10'
+    )
+ 		
   ),
   'water_demand_unit' => 'l/s',
   'decimals' => 2,
@@ -44,7 +50,7 @@
     'da' => 'da',
     'dg' => 'dg',
   ),
-  'geoserverIP' => '131.114.33.66',
+  'geoserverIP' => '127.0.0.0',
   'geoserverPort' => '80',
   'geoserverPath' => '/geoserver/wms',
   'dateTimeFormat_unicode' => 'dd MMMM yyyy, HH:mm',
@@ -89,4 +95,5 @@
  'pdf_dir'=>'pdf_download',
  'awstats'=>'http://wiz.acque.net/awstats/awstats.pl'
 );
- ?>
+
+ ?>

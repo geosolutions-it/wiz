@@ -59,18 +59,14 @@ $layerslist= array(
 		    // Geoscopio come BaseLayer
 			var ortofoto = new OpenLayers.Layer.WMS(
 			        "Ortofoto 10k",
-	                //"http://web.rete.toscana.it/sgrwms/com.rt.wms.RTmap?",
 			        "<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>",
 	                {
-			            layers: 'otf10k10',  // 3003
+                        layers: '<?php echo Yii::app()->params['geoserver']['base_layers']['ofc'] ?>',
 			            version:'1.1.0',
-			            //srs:'EPSG:3003',
-			            //transparent: 'true',
 			            format: 'image/png'
 			        },
 			        { 
 			        	isBaseLayer:true
-			        	//,projection:monte_mario
 	                    ,transitionEffect: 'resize'
                     	,resolutions: [	/*156543.03390625, 78271.516953125, 39135.7584765625,
 		                				19567.87923828125, 9783.939619140625, 4891.9698095703125,
@@ -88,18 +84,16 @@ $layerslist= array(
 		    // Geoscopio come BaseLayer
 			var ctr10 = new OpenLayers.Layer.WMS(
 			        "CTR 10k",
-	                //"http://web.rete.toscana.it/sgrwms/com.rt.wms.RTmap?",
 			        "<?php echo 'http://'.Yii::app()->params['geoserver']['ip'].':'.Yii::app()->params['geoserver']['port'].Yii::app()->params['geoserver']['path'].Yii::app()->params['geoserver']['wms']; ?>",
 	                {
 			        	//layers: 'rst2k_liv3',  // 3003
-			        	layers: 'idrst10k',  // 3003
+			        	layers: '<?php echo Yii::app()->params['geoserver']['base_layers']['ctr10k'] ?>',
 			            version:'1.1.0',
 			            format: 'image/png'
 				            
 			        },
 			        { 
 			        	isBaseLayer:true
-			        	//,projection:monte_mario
 	                    ,transitionEffect: 'resize'
 		                ,resolutions: [	/*156543.03390625, 78271.516953125, 39135.7584765625,
 		                				19567.87923828125, 9783.939619140625, 4891.9698095703125,
