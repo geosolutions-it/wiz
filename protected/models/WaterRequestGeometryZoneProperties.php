@@ -40,8 +40,9 @@ class WaterRequestGeometryZoneProperties extends CActiveRecord
 			array('geometry_zone, parameter, value', 'required'),
 			array('geometry_zone', 'numerical', 'integerOnly'=>true),
 			array('parameter, value', 'length', 'max'=>255),
-			array('value', 'numerical', 'integerOnly'=>true),
-			// The following rule is used by search().
+			//array('value', 'numerical', 'integerOnly'=>true),
+            array('value', 'numerical'),
+            // The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, geometry_zone, parameter, value', 'safe', 'on'=>'search'),
 		);
