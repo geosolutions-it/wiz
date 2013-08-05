@@ -13,20 +13,20 @@ return array (
         <br/>
         The highest status such Requests for Water may take at this stage is a <b>Submitted</b> status (as soon as the Request is submitted).
         <br/>
-        The level of local detail is the UTOE (Unità Territoriali Organiche Elementari): these are the most basic urban planning areas, each having its own descriptive and regulatory reference that must be used as guidance in the Urban Plan; next to each UTOE, the plan lists the maximum allowed size of any settlement, the maximum number of residents, the uses allowed for such areas, the required infrastructure and facilities.<br/>
+        The level of local detail is the UTOE (Unit&aacute; Territoriali Organiche Elementari): these are the most basic urban planning areas, each having its own descriptive and regulatory reference that must be used as guidance in the Urban Plan; next to each UTOE, the plan lists the maximum allowed size of any settlement, the maximum number of residents, the uses allowed for such areas, the required infrastructure and facilities.<br/>
         At the preliminary stage, a request may be further detailed in the Executive Request.</p>
         ',
         'phase_2_info'=>'<p>It is used to ask the provider for an <b>opinion about the implementation of an urban project</b>.<br/>
             Features and information requirements are the same as before, so they will not be described.<br/>
             In this case, the provider has to step in to approve (Approved status) or reject (Rejected status) your Request for Water, depending on the requirement and total water availability.<br/>
             As well as assessing the feasibility of the project, the provider will also provide a cost estimate.<br/>
-            If confirmed (Confirmed status), the provider ‘reserves’ the requested amount of water resource and keeps it aside for the user until a set date.<br/>
+            If confirmed (Confirmed status), the provider &ldquot;reserves&rdquot; the requested amount of water resource and keeps it aside for the user until a set date.<br/>
             After the deadline, the request is automatically labelled as <b><i>Expired</i></b>.<br/><br/></p>',
         'phase_3_info'=>'<p>
-            It is used to ask the provider for an opinion about some detail of the project (“Submitted” status), where the level of local detail is one parcel. Features and information requirements are the same as before, so they will not be described.<br/>
-            In this case, the provider has to step in to approve (Approved status) or reject (Rejected status) your Request for Water, depending on the outcome of the simulations carried out on the grid; in addition, the provider may reserve to confirm its approval at a later date and temporarily reject it (“Later” status). If the approval is confirmed (“Confirmed” status), the project must be started before a deadline established by the provider (usually within 1 year); otherwise, the request is automatically labelled as Expired. 
+            It is used to ask the provider for an opinion about some detail of the project (&ldquot;Submitted&rdquot; status), where the level of local detail is one parcel. Features and information requirements are the same as before, so they will not be described.<br/>
+            In this case, the provider has to step in to approve (Approved status) or reject (Rejected status) your Request for Water, depending on the outcome of the simulations carried out on the grid; in addition, the provider may reserve to confirm its approval at a later date and temporarily reject it (&ldquot;Later&rdquot; status). If the approval is confirmed (&ldquot;Confirmed&rdquot; status), the project must be started before a deadline established by the provider (usually within 1 year); otherwise, the request is automatically labelled as Expired. 
             <br/>
-            When the project is started, once the local authorities have served notice to the system, the status of the request is changed to “Being processed”. When the project is finished, the status of the request is changed to Completed.
+            When the project is started, once the local authorities have served notice to the system, the status of the request is changed to &ldquot;Being processed&rdquot;. When the project is finished, the status of the request is changed to Completed.
         </p>
         <p>
              Each change of status generates a notice/sends an email to the user.</br>
