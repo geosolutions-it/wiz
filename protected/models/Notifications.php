@@ -249,7 +249,7 @@ class Notifications extends CActiveRecord
 			$this->notification_category_ptr = -1;
 			Yii::log('category='.$category.' type='.$type, CLogger::LEVEL_INFO, 'Notifications::findCategory()');
 		}
-		//Yii::log('categories='.print_r($categories), CLogger::LEVEL_INFO, 'Notifications::findCategory()');
+		//Yii::log('categories='.print_r($categories, true), CLogger::LEVEL_INFO, 'Notifications::findCategory()');
 		return $categories;
 	}
 	

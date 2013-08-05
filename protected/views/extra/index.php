@@ -19,6 +19,6 @@ if ($plugins) {
 	} 
 }
 else {
-	echo 'Nessun plugin installato';
+	echo Yii::t('extra','No installed Plugins');
 }
 ?>
