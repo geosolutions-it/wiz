@@ -35,12 +35,6 @@ return array (
       raggiunto importanti risultati, mostrando la possibilit&agrave; di dar vita ad un circolo virtuoso tra il
       trattamento della falda acquifera e i cittadini che ne fruiscono, come sistema integrato in equilibrio.
         </p>
-        <p>
-      Per riferimenti e contatti:
-      Ing. <b>Oberdan Cei</b>
-      E-mail: o.cei@ingegnerietoscane.net
-      Tel.: +39 050 843445
-        </p>
     </div>
     
     <div class="partner" id="bacino">
@@ -79,12 +73,6 @@ return array (
       di Bacino sono resi disponibili online gratuitamente, senza necessit&agrave; di autenticazione,
       accompagnati da meta-dati che ne descrivono le caratteristiche.
         </p>
-        <p>
-      Per riferimenti e contatti:
-      Ing. <b>Isabella Bonamini</b>
-      e-mail: i.bonamini@adbarno.it
-      Tel.: +39 055 26743222
-    </p>
     </div>
     
     
@@ -117,11 +105,6 @@ return array (
       esperienza nella progettazione e gestione dei sistemi di amministrazione della rete acquifera. Dal
       2006 al 2009, &egrave; stata anche un importante partner operativo del Progetto comunitario <b>A.S.A.P.</b>
       (Actions for Systemic Aquifer Protection - LIFE06/ENV/IT/000255).
-        </p>
-        <p>
-      Per riferimenti e contatti:
-      Ing. <b>Damasco Morelli</b>
-      E-mail: d.morelli@ingegnerietoscane.net
         </p>
     </div>
     
@@ -159,11 +142,6 @@ return array (
       internazionali, ed ha partecipato - assieme ad alcuni partner di WIZ - all\'esecuzione del progetto
       <b>A.S.A.P.</b> (<i>LIFE06/ENV/IT/000255</i>, 2006-2009), incentrato sulle questioni ambientali relative alla
       risorsa acquifera.
-        </p>
-        <p>
-      Per riferimenti e contatti:
-      Ing. <b>Juan Sobreira Seoane</b>
-      E-mail: jsobreira@itg.es
         </p>
     </div>
 
