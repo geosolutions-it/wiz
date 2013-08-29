@@ -24,9 +24,10 @@ return array (
         </p>
         
         <p>
-            <div>
+            <div style="height: 100px;">
             {download_zip}
             {download_tar}
+            {github_link}
             </div>
         </p>
         

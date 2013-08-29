@@ -78,6 +78,7 @@
     'junction_prefix' => 'WIZ_',
   ),
   'src_download_folder'=>'/download/',
+  'src_download_github'=>'https://github.com/geosolutions-it/wiz/archive/master.zip',
   'src_zip_file'=>'wiz_latest.zip',
   'src_tar_file'=>'wiz_latest.tar',
   'shp_upload_folder' => '/../uploads/shp/',
